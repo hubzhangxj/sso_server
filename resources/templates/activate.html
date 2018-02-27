@@ -1,0 +1,18 @@
+{% extends "admin/login.html" %}
+{% load i18n admin_static %}
+
+{% block branding %}<h1 id="site-name">{% trans 'Activate' %}</h1>{% endblock %}
+
+{% block content %}
+<div id="content-main">
+    <form action="/uams/activate" method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <label>{{user}}，你的账号尚未在{{ site }}登录过，是否要激活？</label>
+        </div>
+        <div class="submit-row">
+            <label>&nbsp;</label><input type="submit" value="激活"/>
+        </div>
+    </form>
+</div>
+{% endblock %}

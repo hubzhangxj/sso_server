@@ -1,0 +1,10 @@
+.git
+.idea
+migrations
+docs
+UAMS.iml
+push.sh
+push114.sh
+push106.sh
+UAMS/settings.py
+log/

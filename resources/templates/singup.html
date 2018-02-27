@@ -1,0 +1,59 @@
+<html lang="zh-hans"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>注册 | UAMS</title>
+    <link rel="stylesheet" type="text/css" href="/static/suit/bootstrap/css/bootstrap.min.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/suit/css/suit.css" media="all">
+    <script type="text/javascript">window.__admin_media_prefix__ = "/static/admin/";</script>
+    <script src="/static/suit/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript">var Suit = { $: $.noConflict() }; if (!$) $ = Suit.$; </script>
+    <script src="/static/suit/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .required:after { content: '*'; margin: 0 0 0 5px; position: absolute; color: #ccc;}
+        .login #content-main form input[type=text], .login #content-main form input[type=password] {
+            height: 28px;
+        }
+    </style>
+    <meta name="robots" content="NONE,NOARCHIVE">
+</head>
+<body class="login">
+<div id="wrap">
+    <div id="content-main">
+        <h1><i class="icon-lock icon-white"></i> UAMS注册</h1>
+        <form action="/uams/signup_auth" method="post" id="login-form">
+            {% csrf_token %}
+            {% if error %}
+                <div class="form-row control-group">
+                    <p v-if="" class="errornote alert alert-error">{{ error }}</p>
+                </div>
+            {% endif %}
+            <div class="form-row control-group">
+                <label class="control-label required">用户名:</label>
+                <input type="text" name="username" autofocus required value="{{username}}" maxlength="16" minlength="3">
+            </div>
+            <div class="form-row control-group">
+                <label class="control-label required">密码:</label>
+                <input type="password" name="pwd" required  maxlength="40" minlength="8">
+            </div>
+            <div class="form-row">
+                <label class="control-label required">密码确认:</label>
+                <input type="password" name="pwd1" required  maxlength="40" minlength="8">
+            </div>
+            <div class="form-row">
+                <label>电子邮箱:</label>
+                <input type="text" name="email" required value="{{email}}"  maxlength="30" minlength="6">
+            </div>
+            <div class="submit-row">
+                <input type="submit" value="注册" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/static/suit/js/suit.js"></script>
+<script type="text/javascript" src="/static/js/backfix.js"></script>
+<script type="application/javascript">
+{#    bajb_backdetect.OnBack = function() {#}
+{#        window.history.go(-3);#}
+{#    }#}
+</script>
+</body>
+</html>
